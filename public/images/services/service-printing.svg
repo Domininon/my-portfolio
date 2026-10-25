@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="800" viewBox="0 0 1200 800">
+<rect width="1200" height="800" fill="#00483C"/>
+<g fill="#E5FD4F" font-family="'DM Sans', system-ui, sans-serif" text-anchor="middle">
+<text x="600" y="386" font-size="34" font-weight="700" letter-spacing="2">PRINT</text>
+<text x="600" y="424" font-size="16" font-weight="400" opacity="0.7">Replace in /public/images</text>
+</g>
+</svg>

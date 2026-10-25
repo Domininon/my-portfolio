@@ -1,0 +1,137 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600;9..40,700&family=Space+Grotesk:wght@400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --forest: #00483C;
+    --lime: #E5FD4F;
+    --paper: #FFFFFF;
+    --ink: #000000;
+  }
+
+  html {
+    scroll-behavior: smooth;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+  }
+
+  body {
+    @apply bg-paper text-ink font-sans antialiased;
+  }
+
+  ::selection {
+    background-color: var(--lime);
+    color: var(--ink);
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
+    *, *::before, *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+    }
+  }
+}
+
+@layer components {
+  .container-edge {
+    @apply mx-auto w-full max-w-edge px-5 sm:px-8 lg:px-12;
+  }
+
+  .eyebrow {
+    @apply font-sans text-xs uppercase tracking-widest font-medium;
+  }
+
+  .btn {
+    @apply inline-flex items-center justify-center gap-2 font-medium transition-all duration-300 disabled:cursor-not-allowed disabled:opacity-60;
+  }
+
+  .btn-primary {
+    @apply btn bg-lime text-forest hover:bg-lime-300 px-6 py-3.5 text-sm tracking-wide;
+  }
+
+  .btn-dark {
+    @apply btn bg-ink text-paper hover:bg-forest-600 px-6 py-3.5 text-sm tracking-wide;
+  }
+
+  .btn-outline {
+    @apply btn border border-current text-ink hover:bg-ink hover:text-paper px-6 py-3.5 text-sm tracking-wide;
+  }
+
+  .btn-ghost {
+    @apply btn text-ink/80 hover:text-ink px-2 py-1 text-sm;
+  }
+
+  .section-pad {
+    @apply py-20 md:py-28 lg:py-32;
+  }
+
+  .hairline {
+    @apply h-px w-full bg-ink/10;
+  }
+
+  .field {
+    @apply w-full bg-transparent border-b border-ink/20 py-3.5 text-ink placeholder:text-ink/40 focus:border-ink focus:outline-none transition-colors duration-200;
+  }
+
+  .field-dark {
+    @apply w-full bg-transparent border-b border-paper/25 py-3.5 text-paper placeholder:text-paper/40 focus:border-lime focus:outline-none transition-colors duration-200;
+  }
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+  .text-pretty {
+    text-wrap: pretty;
+  }
+  .grain {
+    position: relative;
+  }
+  .grain::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    opacity: 0.04;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='3' /%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' /%3E%3C/svg%3E");
+  }
+  .reveal {
+    opacity: 0;
+    transform: translateY(24px);
+    transition: opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1), transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+  .reveal.is-visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .reveal { opacity: 1; transform: none; transition: none; }
+  }
+  .page-enter {
+    animation: pageEnter 0.5s cubic-bezier(0.16, 1, 0.3, 1) both;
+  }
+  @keyframes pageEnter {
+    0% { opacity: 0; transform: translateY(12px); }
+    100% { opacity: 1; transform: translateY(0); }
+  }
+  .safe-area {
+    padding-bottom: env(safe-area-inset-bottom, 0px);
+    padding-right: env(safe-area-inset-right, 0px);
+  }
+  .animate-popup-enter {
+    animation: popupEnter 0.5s cubic-bezier(0.16, 1, 0.3, 1) both;
+  }
+  @keyframes popupEnter {
+    0% { opacity: 0; transform: scale(0.96) translateY(10px); }
+    100% { opacity: 1; transform: scale(1) translateY(0); }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .animate-popup-enter { animation: none; opacity: 1; transform: none; }
+  }
+}

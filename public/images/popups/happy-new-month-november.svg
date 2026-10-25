@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="900" viewBox="0 0 1600 900">
+<rect width="1600" height="900" fill="#00483C"/>
+<rect x="40" y="40" width="1520" height="820" fill="none" stroke="#E5FD4F" stroke-width="3" opacity="0.4"/>
+<g font-family="'Space Grotesk', system-ui, sans-serif" text-anchor="middle">
+<text x="800" y="320" font-size="42" font-weight="500" letter-spacing="8" fill="#E5FD4F" opacity="0.7">A NEW MONTH</text>
+<text x="800" y="460" font-size="110" font-weight="700" fill="#FFFFFF">Happy</text>
+<text x="800" y="580" font-size="110" font-weight="700" fill="#E5FD4F">New Month!</text>
+<text x="800" y="680" font-size="28" fill="#FFFFFF" opacity="0.5">Replace with your campaign artwork</text>
+<text x="800" y="720" font-size="20" fill="#FFFFFF" opacity="0.3">/public/images/popups/</text>
+</g>
+</svg>
